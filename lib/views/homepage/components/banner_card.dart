@@ -5,7 +5,7 @@ class BannerCard extends StatelessWidget {
   
    final String imagePath;
 
-   const BannerCard({Key? key, required this.imagePath}) : super(key: key);
+   const BannerCard({super.key, required this.imagePath});
   @override
   Widget build(BuildContext context) {
     return Container(

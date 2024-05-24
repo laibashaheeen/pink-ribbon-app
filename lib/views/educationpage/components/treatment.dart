@@ -6,7 +6,7 @@ import 'package:pink_ribbon/views/educationpage/components/bullets.dart';
 import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 class Treatment extends StatefulWidget {
-  const Treatment({Key? key}) : super(key: key);
+  const Treatment({super.key});
 
   @override
   State<Treatment> createState() => _TreatmentState();

@@ -9,7 +9,7 @@ import 'package:pink_ribbon/views/educationpage/components/faq_widget.dart';
 
 class FAQs extends StatefulWidget {
   
-  const FAQs({Key? key}) : super(key: key);
+  const FAQs({super.key});
 
   @override
   State<FAQs> createState() => _FAQsState();

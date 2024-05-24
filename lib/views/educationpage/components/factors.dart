@@ -5,7 +5,7 @@ import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 class Factors extends StatefulWidget {
-  const Factors({Key? key}) : super(key: key);
+  const Factors({super.key});
 
   @override
   State<Factors> createState() => _FactorsState();

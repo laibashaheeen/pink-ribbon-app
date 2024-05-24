@@ -15,7 +15,7 @@ import 'package:pink_ribbon/views/landingpage/landing_page.dart';
 
 
 class EducationPage extends StatefulWidget {
-  const EducationPage({Key? key}) : super(key: key);
+  const EducationPage({super.key});
 
   @override
   State<EducationPage> createState() => _EducationPageState();

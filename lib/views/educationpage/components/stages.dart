@@ -7,7 +7,7 @@ import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 import 'package:pink_ribbon/views/educationpage/components/richtext.dart';
 
 class Stages extends StatefulWidget {
-  const Stages({Key? key}) : super(key: key);
+  const Stages({super.key});
 
   @override
   State<Stages> createState() => _StagesState();

@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:pink_ribbon/data/app_assets.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
@@ -171,50 +170,102 @@ class _DonationPageState extends State<DonationPage> {
                 ],
               ),
               SizedBox(height: 30.h),
-              SwipeButton(
-                thumbPadding: EdgeInsets.all(4.h),
-                thumb: Icon(
-                  Icons.chevron_right,
-                  color: AppColors.kPrimary,
-                  size: 32,
-                ),
-                activeTrackColor: AppColors.kPrimary,
-                activeThumbColor: Colors.white,
-                borderRadius: BorderRadius.circular(50),
-                width: 265.w,
-                onSwipe: () {
-                  setState(() {
-                    _enteredAmount = _textController.text;
-                  });
-                  if (_enteredAmount != null && _enteredAmount!.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PaymentMethods(),
-                      ),
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor: AppColors.kBackgroundPink2,
-                        duration: const Duration(milliseconds: 800),
-                        content: Text(
-                          "Please enter an amount",
-                          style: AppTypography.kLight12
-                              .copyWith(color: AppColors.kPrimary),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    );
-                  }
-                },
-                child: Text(
-                  "Swipe to Donate",
-                  style:
-                      AppTypography.kBold14.copyWith(color: AppColors.kWhite),
-                  textAlign: TextAlign.center,
-                ),
-              ),
+              // SwipeButton(
+              //   thumbPadding: EdgeInsets.all(4.h),
+              //   thumb: Icon(
+              //     Icons.chevron_right,
+              //     color: AppColors.kPrimary,
+              //     size: 32,
+              //   ),
+              //   activeTrackColor: AppColors.kPrimary,
+              //   activeThumbColor: Colors.white,
+              //   borderRadius: BorderRadius.circular(50),
+              //   width: 265.w,
+              //   onSwipe: () {
+              //     setState(() {
+              //       _enteredAmount = _textController.text;
+              //     });
+              //     if (_enteredAmount != null && _enteredAmount!.isNotEmpty) {
+              //       Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => const PaymentMethods(),
+              //         ),
+              //       );
+              //     } else {
+              //       ScaffoldMessenger.of(context).showSnackBar(
+              //         SnackBar(
+              //           backgroundColor: AppColors.kBackgroundPink2,
+              //           duration: const Duration(milliseconds: 800),
+              //           content: Text(
+              //             "Please enter an amount",
+              //             style: AppTypography.kLight12
+              //                 .copyWith(color: AppColors.kPrimary),
+              //             textAlign: TextAlign.center,
+              //           ),
+              //         ),
+              //       );
+              //     }
+              //   },
+              //   child: Text(
+              //     "Swipe to Donate",
+              //     style:
+              //         AppTypography.kBold14.copyWith(color: AppColors.kWhite),
+              //     textAlign: TextAlign.center,
+              //   ),
+              // ),
+              InkWell(
+  onTap: () {
+    setState(() {
+      _enteredAmount = _textController.text;
+    });
+    if (_enteredAmount != null && _enteredAmount!.isNotEmpty) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const PaymentMethods(),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: AppColors.kBackgroundPink2,
+          duration: const Duration(milliseconds: 800),
+          content: Text(
+            "Please enter an amount",
+            style: AppTypography.kLight12.copyWith(color: AppColors.kPrimary),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
+    }
+  },
+  child: Container(
+    padding: EdgeInsets.all(4.h),
+    decoration: BoxDecoration(
+      color: AppColors.kPrimary,
+      borderRadius: BorderRadius.circular(50.r),
+    ),
+    width: 265.w,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          "Donate",
+          style: AppTypography.kBold14.copyWith(color: AppColors.kWhite),
+          textAlign: TextAlign.center,
+        ),
+       SizedBox(width: 10.w),
+        Icon(
+          Icons.chevron_right,
+          color: AppColors.kPrimary,
+          size: 32,
+        ),
+      ],
+    ),
+  ),
+),
+
               SizedBox(
                 height: 90.h,
               )

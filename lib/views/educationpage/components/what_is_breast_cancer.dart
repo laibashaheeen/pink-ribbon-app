@@ -5,7 +5,7 @@ import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 class BreastCancer extends StatefulWidget {
-  const BreastCancer({Key? key}) : super(key: key);
+  const BreastCancer({super.key});
 
   @override
   State<BreastCancer> createState() => _BreastCancerState();
