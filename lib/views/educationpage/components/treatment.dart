@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/educationpage/components/bullets.dart';
+import 'package:pink_ribbon/views/educationpage/components/headrow.dart';
 import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 class Treatment extends StatefulWidget {
@@ -38,30 +39,7 @@ class _TreatmentState extends State<Treatment> {
             SizedBox(
               height: 45.h,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
-                  decoration: BoxDecoration(
-                    color: AppColors.kPrimary,
-                    borderRadius: BorderRadius.circular(30.r),
-                  ),
-                  child: Text(
-                    "Treatment",
-                    style:
-                        AppTypography.kBold16.copyWith(color: AppColors.kWhite),
-                  ),
-                ),
-                InkWell(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.share,
-                      color: AppColors.kPrimary,
-                    ))
-              ],
-            ),
+            educationHeadRow(title: "Treatment", content: "Check out this information about Traeatment of Breast Cancer! \n\nhttps://pinkribbon.org.pk/treatment/"),
             SizedBox(height: 30.h),
             Text(
               "When a diagnosis of breast cancer has been made, your doctor will discuss the best treatment for you, the timing of your treatment, and any potential side effects. Your diagnosis and treatment decisions will be influenced by factors such as your general health and personal choice.",

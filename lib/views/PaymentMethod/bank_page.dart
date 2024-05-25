@@ -4,19 +4,23 @@ import 'package:image_picker/image_picker.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/PaymentMethod/components/account_details.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 import 'package:pink_ribbon/views/landingpage/landing_page.dart';
+import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 class BankPage extends StatefulWidget {
-  const BankPage({super.key});
+  final String bankname;
+  final String accountNumber;
+  final String ibanNumber;
+  const BankPage({super.key, required this.bankname, required this.accountNumber, required this.ibanNumber});
+
 
   @override
   State<BankPage> createState() => _BankPageState();
 }
 
 class _BankPageState extends State<BankPage> {
-  final String accountNumber = '0010049231990017';
-  final String ibanNumber = 'PK33ABPA0010049231990017';
+  // final String accountNumber = '0010049231990017';
+  // final String ibanNumber = 'PK33ABPA0010049231990017';
   XFile? _imageFile;
 
   Future<void> _pickImage() async {
@@ -123,17 +127,34 @@ class _BankPageState extends State<BankPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            accountDetails(accountNumber, 'Account No.', context),
+            Center(
+              child: Text(widget.bankname,
+              style: AppTypography.kSemiBold16
+                            .copyWith(color: AppColors.kAppBarPink),
+                            ),
+            ),
+            SizedBox(
+              height: 30.h,
+            ),
+            accountDetails(widget.accountNumber, 'Account No.', context),
             SizedBox(
               height: 20.h,
             ),
-            accountDetails(ibanNumber, 'IbanNumber No.', context),
+            
+    Container(
+  child: widget.ibanNumber.isNotEmpty
+    ? accountDetails(widget.ibanNumber, 'IBAN', context)
+    : null,
+),
+
             SizedBox(
               height: 16.h,
             ),
-            // _imageFile == null
-            //     ? const Text('No image selected.')
-            //     : Image.file(File(_imageFile!.path)),
+            Text(
+                      "Copy the account or IBAN above, open the Bank application, paste the selected numbers into their respective fields, and proceed with the donation. Remember to take a screenshot of the transaction and upload here",
+                      style: AppTypography.kLight10
+                          .copyWith(color: AppColors.kBackgroundPink1),
+                    ),
             SizedBox(height: 16.h),
             InkWell(
               onTap: _pickImage,

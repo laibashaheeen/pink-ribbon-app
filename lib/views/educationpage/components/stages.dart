@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/educationpage/components/bullets.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
+import 'package:pink_ribbon/views/educationpage/components/headrow.dart';
 import 'package:pink_ribbon/views/educationpage/components/richtext.dart';
+import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 class Stages extends StatefulWidget {
   const Stages({super.key});
@@ -39,30 +40,7 @@ class _StagesState extends State<Stages> {
             SizedBox(
               height: 45.h,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
-                  decoration: BoxDecoration(
-                    color: AppColors.kPrimary,
-                    borderRadius: BorderRadius.circular(30.r),
-                  ),
-                  child: Text(
-                    "Stages",
-                    style:
-                        AppTypography.kBold16.copyWith(color: AppColors.kWhite),
-                  ),
-                ),
-                InkWell(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.share,
-                      color: AppColors.kPrimary,
-                    ))
-              ],
-            ),
+            educationHeadRow(title: "Stages", content: "Check out this information about Stages of Breast Cancer! \n\nhttps://pinkribbon.org.pk/stages-of-breast-cancer/"),
             SizedBox(height: 30.h),
             Text(
               "A stage is usually expressed as a number on a scale of 0 through IV — with stage 0 describing non-invasive cancers that remain within their original location and stage IV describing invasive cancers that have spread outside the breast to other parts of the body.",

@@ -89,44 +89,44 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 55.h,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 22.0.w),
-                child: Card(
-                  elevation: 3,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0.r),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.zero,
-                      filled: true,
-                      fillColor: AppColors.kWhite,
-                      hintText: 'Search',
-                      hintStyle: AppTypography.kSemiBold14
-                          .copyWith(color: AppColors.kPrimary),
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.only(left: 8.0.w),
-                        child: Icon(
-                          Icons.search,
-                          color: AppColors.kPrimary,
-                          size: 26,
-                        ),
-                      ),
-                      border: InputBorder.none,
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.r),
-                          borderSide: BorderSide.none),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.r),
-                          borderSide: BorderSide.none),
-                      disabledBorder: const OutlineInputBorder(),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 35.h,
-              ),
+              // Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 22.0.w),
+              //   child: Card(
+              //     elevation: 3,
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(30.0.r),
+              //     ),
+              //     child: TextField(
+              //       decoration: InputDecoration(
+              //         contentPadding: EdgeInsets.zero,
+              //         filled: true,
+              //         fillColor: AppColors.kWhite,
+              //         hintText: 'Search',
+              //         hintStyle: AppTypography.kSemiBold14
+              //             .copyWith(color: AppColors.kPrimary),
+              //         prefixIcon: Padding(
+              //           padding: EdgeInsets.only(left: 8.0.w),
+              //           child: Icon(
+              //             Icons.search,
+              //             color: AppColors.kPrimary,
+              //             size: 26,
+              //           ),
+              //         ),
+              //         border: InputBorder.none,
+              //         focusedBorder: OutlineInputBorder(
+              //             borderRadius: BorderRadius.circular(30.r),
+              //             borderSide: BorderSide.none),
+              //         enabledBorder: OutlineInputBorder(
+              //             borderRadius: BorderRadius.circular(30.r),
+              //             borderSide: BorderSide.none),
+              //         disabledBorder: const OutlineInputBorder(),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: 35.h,
+              // ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 22.0.w),
                 child: CarouselSlider(
@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage> {
               
               CarouselSlider.builder(
                 options: CarouselOptions(
-                  height: 280.h,
+                  height: 282.h,
                   viewportFraction: 0.7,
                   initialPage: 1,
                   enableInfiniteScroll: true,

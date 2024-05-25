@@ -91,16 +91,16 @@ void _calculateBMI() {
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(24.h),
+        // padding: EdgeInsets.all(24.h),
         child: Container(
-          
+          padding: EdgeInsets.all(24.h),
           width: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
                 AppColors.kBackgroundPink1.withOpacity(0.4),
-                AppColors.kBackgroundPink2.withOpacity(0.5),
-                AppColors.kBackgroundPink1.withOpacity(0.4),
+              AppColors.kBackgroundPink2.withOpacity(0.5),
+              AppColors.kWhite,
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -256,7 +256,7 @@ void _calculateBMI() {
                     SizedBox(height: 24.h),
                     ProfileTextFormField(
                 controller: _heightController,
-                label: 'Height (cm)',
+                label: 'Height (ft)',
               ),
               SizedBox(height: 24.h),
           
@@ -289,7 +289,6 @@ void _calculateBMI() {
                   ),
                 ),
               ),
-              SizedBox(height: 28.h),
           
               // Display calculated BMI
               if (_bmi != null)

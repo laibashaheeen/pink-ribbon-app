@@ -12,10 +12,12 @@ import 'package:pink_ribbon/views/educationpage/components/symptoms.dart';
 import 'package:pink_ribbon/views/educationpage/components/treatment.dart';
 import 'package:pink_ribbon/views/educationpage/components/what_is_breast_cancer.dart';
 import 'package:pink_ribbon/views/landingpage/landing_page.dart';
+import 'package:pink_ribbon/views/profilePage/profile_view.dart';
 
 
 class EducationPage extends StatefulWidget {
-  const EducationPage({super.key});
+  
+  const EducationPage({super.key,});
 
   @override
   State<EducationPage> createState() => _EducationPageState();
@@ -88,7 +90,13 @@ class _EducationPageState extends State<EducationPage> {
             ),
           ),
           InkWell(
-              onTap: () {},
+              onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(),
+                  ));
+            },
               child: Padding(
                 padding: EdgeInsets.only(right: 16.w, left: 8.w),
                 child: Icon(
@@ -146,3 +154,7 @@ class _EducationPageState extends State<EducationPage> {
     );
   }
 }
+
+
+
+

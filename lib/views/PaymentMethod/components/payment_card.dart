@@ -56,7 +56,7 @@ class PaymentCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const BankPage(),
+            builder: (context) => BankPage(bankname: methodItem.title, accountNumber: methodItem.accountNo, ibanNumber: methodItem.iban,),
           ),
         );
       },

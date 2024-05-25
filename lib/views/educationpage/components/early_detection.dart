@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
+import 'package:pink_ribbon/views/educationpage/components/headrow.dart';
 import 'package:pink_ribbon/views/educationpage/components/syptoms_bullets.dart';
+import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 class EarlyDetection extends StatefulWidget {
   const EarlyDetection({super.key});
@@ -38,30 +39,7 @@ class _EarlyDetectionState extends State<EarlyDetection> {
             SizedBox(
               height: 45.h,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
-                  decoration: BoxDecoration(
-                    color: AppColors.kPrimary,
-                    borderRadius: BorderRadius.circular(30.r),
-                  ),
-                  child: Text(
-                    "Early Detection",
-                    style:
-                        AppTypography.kBold16.copyWith(color: AppColors.kWhite),
-                  ),
-                ),
-                InkWell(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.share,
-                      color: AppColors.kPrimary,
-                    ))
-              ],
-            ),
+            educationHeadRow(title: "Early Detection", content: "Check out this information about Early Detection of Breast Cancer! \n\nhttps://pinkribbon.org.pk/early-detection-techniques/"),
             SizedBox(height: 30.h),
             Text(
               "Ultrasound",

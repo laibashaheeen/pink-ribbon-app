@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
+import 'package:pink_ribbon/views/profilePage/profile_view.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -43,7 +44,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           InkWell(
-              onTap: () {},
+              onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(),
+                  ));
+            },
               child: Padding(
                 padding: EdgeInsets.only(right: 16.w, left: 8.w),
                 child: Icon(

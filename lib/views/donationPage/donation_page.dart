@@ -241,29 +241,19 @@ class _DonationPageState extends State<DonationPage> {
     }
   },
   child: Container(
-    padding: EdgeInsets.all(4.h),
-    decoration: BoxDecoration(
-      color: AppColors.kPrimary,
-      borderRadius: BorderRadius.circular(50.r),
-    ),
-    width: 265.w,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "Donate",
-          style: AppTypography.kBold14.copyWith(color: AppColors.kWhite),
-          textAlign: TextAlign.center,
-        ),
-       SizedBox(width: 10.w),
-        Icon(
-          Icons.chevron_right,
-          color: AppColors.kPrimary,
-          size: 32,
-        ),
-      ],
-    ),
-  ),
+                alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(vertical: 8.h),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: AppColors.kPrimary,
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+                child: Text("Donate",
+                    style: AppTypography.kSemiBold12.copyWith(
+                      color: AppColors.kWhite,
+                      fontSize: 22,
+                    )),
+              ),
 ),
 
               SizedBox(
