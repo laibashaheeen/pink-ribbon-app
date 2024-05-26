@@ -8,7 +8,6 @@ import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/PaymentMethod/payment_method.dart';
 import 'package:pink_ribbon/views/donationPage/components/button.dart';
 import 'package:pink_ribbon/views/donationPage/components/button_model.dart';
-import 'package:pink_ribbon/views/landingpage/landing_page.dart';
 
 class DonationPage extends StatefulWidget {
   const DonationPage({super.key});
@@ -26,20 +25,7 @@ class _DonationPageState extends State<DonationPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.kWhite,
-        leading: InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LandingPage(),
-                ));
-          },
-          child: Icon(
-            Icons.arrow_back_ios_new,
-            size: 28,
-            color: AppColors.kAppBarGrey,
-          ),
-        ),
+        
         centerTitle: true,
         title: Text("Donation",
             style:

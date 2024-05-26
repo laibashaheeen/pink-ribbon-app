@@ -28,10 +28,14 @@ class AppAssets {
   static String registraion = "assets/images/Registration.png";
   static String google = "assets/images/Google.png";
   static String fb = "assets/images/Facebook.png";
+  static String kFounder = "assets/images/founder.png";
 
  // svg
   static String kEducation = 'assets/icons/education.svg';
   
-  static String kWhatsapp = "assets/images/whatsapp.svg";
+  static String kWhatsapp = "assets/icons/whatsapp.svg";
+   static String kAboutUs = "assets/icons/about_us.svg";
+    static String kMission = "assets/icons/mission.svg";
+     static String kVision = "assets/icons/vision.svg";
 
 }

@@ -11,7 +11,6 @@ import 'package:pink_ribbon/views/educationpage/components/stages.dart';
 import 'package:pink_ribbon/views/educationpage/components/symptoms.dart';
 import 'package:pink_ribbon/views/educationpage/components/treatment.dart';
 import 'package:pink_ribbon/views/educationpage/components/what_is_breast_cancer.dart';
-import 'package:pink_ribbon/views/landingpage/landing_page.dart';
 import 'package:pink_ribbon/views/profilePage/profile_view.dart';
 
 
@@ -56,20 +55,20 @@ class _EducationPageState extends State<EducationPage> {
       appBar: AppBar(
         
         backgroundColor: AppColors.kWhite,
-        leading: InkWell(
-          onTap: () {
-            Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LandingPage(),
-                  ));
-          },
-          child: Icon(
-                Icons.arrow_back_ios_new,
-                size: 28,
-                color: AppColors.kAppBarGrey,
-              ),
-        ),
+        // leading: InkWell(
+        //   onTap: () {
+        //     Navigator.push(
+        //           context,
+        //           MaterialPageRoute(
+        //             builder: (context) => const LandingPage(),
+        //           ));
+        //   },
+        //   child: Icon(
+        //         Icons.arrow_back_ios_new,
+        //         size: 28,
+        //         color: AppColors.kAppBarGrey,
+        //       ),
+        // ),
         centerTitle: true,
         title: Text("Education",
                 style: AppTypography.kSemiBold18.copyWith(color: AppColors.kPrimary)

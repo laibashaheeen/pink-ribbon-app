@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
+import 'package:pink_ribbon/views/MoreView/more.dart';
 import 'package:pink_ribbon/views/donationPage/donation_page.dart';
 import 'package:pink_ribbon/views/educationpage/education_page.dart';
 import 'package:pink_ribbon/views/homepage/home_page.dart';
@@ -20,7 +21,7 @@ class _LandingPageState extends State<LandingPage> {
     const EducationPage(),
     const DonationPage(),
     Container(),
-    Container(),
+    const MorePage(),
   ];
   @override
   Widget build(BuildContext context) {
