@@ -207,7 +207,7 @@ void _calculateBMI() {
                     ),
                     SizedBox(height: 28.h),
                     const ProfileTextField(
-                      label: 'Mobile',
+                      label: 'Phone No.',
                     ),
                     SizedBox(height: 28.h),
                     const ProfileTextField(

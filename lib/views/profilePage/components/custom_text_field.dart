@@ -6,10 +6,10 @@ import 'package:pink_ribbon/data/typography.dart';
 
 class ProfileTextField extends StatefulWidget {
   final String label;
-  final bool isDropdown;
+  // final bool isDropdown;
   const ProfileTextField({
     super.key,
-    this.isDropdown = false,
+    // this.isDropdown = false,
     required this.label,
   });
 
@@ -49,13 +49,13 @@ class _ProfileTextFieldState extends State<ProfileTextField> {
               borderSide: BorderSide(color: AppColors.kPrimary, width: 1.0.w),
             ),
             
-            suffixIcon: widget.isDropdown
-                ? IconButton(
-                    onPressed: () {},
-                    icon:  Icon(Icons.keyboard_arrow_down, color: AppColors.kGrey)
+            // suffixIcon: widget.isDropdown
+            //     ? IconButton(
+            //         onPressed: () {},
+            //         icon:  Icon(Icons.keyboard_arrow_down, color: AppColors.kGrey)
                     
-                  )
-                : null
+            //       )
+            //     : null
           ),
            style: AppTypography.kSemiBold14.copyWith(color: AppColors.kBlack),
         ),

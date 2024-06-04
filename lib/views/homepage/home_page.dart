@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage> {
               
               CarouselSlider.builder(
                 options: CarouselOptions(
-                  height: 282.h,
+                  height: 285.h,
                   viewportFraction: 0.7,
                   initialPage: 1,
                   enableInfiniteScroll: true,

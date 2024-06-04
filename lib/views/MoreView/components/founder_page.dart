@@ -16,7 +16,8 @@ class FounderMessagePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(30.w),
-          padding: EdgeInsets.symmetric(horizontal: 30.0.w, vertical: 45.h),
+          padding: EdgeInsets.symmetric(horizontal: 30.0.w, vertical: 45
+          .h),
           decoration: BoxDecoration(
             border: Border.all(width: 1.w, color: AppColors.kPrimary)
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
@@ -19,8 +20,11 @@ class BankPage extends StatefulWidget {
 }
 
 class _BankPageState extends State<BankPage> {
-  // final String accountNumber = '0010049231990017';
-  // final String ibanNumber = 'PK33ABPA0010049231990017';
+  
+  final TextEditingController _donationAmountController = TextEditingController();
+  final TextEditingController _accountController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  String? _enteredAmount;
   XFile? _imageFile;
 
   Future<void> _pickImage() async {
@@ -53,13 +57,36 @@ class _BankPageState extends State<BankPage> {
   }
   
   void _submit() {
-    if (_imageFile == null) {
+    
+    if (_donationAmountController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter donation amount before submitting.'),
+        ),
+      );
+    } 
+    if (_accountController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter account number before submitting.'),
+        ),
+      );
+    } 
+    if (_nameController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter name before submitting.'),
+        ),
+      );
+    } 
+    if (_imageFile == null || _donationAmountController.text.isEmpty || _accountController.text.isEmpty || _nameController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Please upload an image before submitting.'),
         ),
       );
-    } else {
+    } 
+    else {
       showDialog<String>(
                 context: context,
                 builder: (BuildContext context) => Dialog(
@@ -109,103 +136,150 @@ class _BankPageState extends State<BankPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(title: "Donation"),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24.w),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              AppColors.kBackgroundPink1.withOpacity(0.4),
-              AppColors.kBackgroundPink2.withOpacity(0.5),
-              AppColors.kWhite,
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 50.h),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                AppColors.kBackgroundPink1.withOpacity(0.4),
+                AppColors.kBackgroundPink2.withOpacity(0.5),
+                AppColors.kWhite,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
           ),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Center(
+                child: Text(widget.bankname,
+                style: AppTypography.kSemiBold16
+                              .copyWith(color: AppColors.kAppBarPink),
+                              ),
+              ),
+              SizedBox(
+                height: 30.h,
+              ),
+              accountDetails(widget.accountNumber, 'Account No.', context),
+              SizedBox(
+                height: 20.h,
+              ),
+              
+            Container(
+          child: widget.ibanNumber.isNotEmpty
+            ? accountDetails(widget.ibanNumber, 'IBAN', context)
+            : null,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: Text(widget.bankname,
-              style: AppTypography.kSemiBold16
+        
+              SizedBox(
+                height: 16.h,
+              ),
+              Text(
+                        "Copy the account/IBAN number, open your banking app, paste the number into the donation field, and complete the transaction. Take a screenshot of the receipt and upload it here. For verification, please enter the donation amount, your account number, and your name (as shown in the banking app).",
+                        style: AppTypography.kLight10
+                            .copyWith(color: AppColors.kBackgroundPink1),
+                      ),
+              
+              SizedBox(
+                height: 16.h,
+              ),
+              DonationTextField('Enter donation amount (Rs.)', TextInputType.number, _donationAmountController),
+              SizedBox(
+                height: 16.h,
+              ),
+              DonationTextField('Enter your Account No.', TextInputType.name, _accountController),
+              SizedBox(
+                height: 16.h,
+              ),
+              DonationTextField("Enter your name as per banking app", TextInputType.name, _nameController),
+                SizedBox(height: 16.h),
+              InkWell(
+                onTap: _pickImage,
+                child: Container(
+                  padding: EdgeInsets.all(10.h),
+                  decoration: BoxDecoration(
+                    color: AppColors.kWhite,
+                    borderRadius: BorderRadius.circular(10.r),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.upload,
+                        color: AppColors.kAppBarPink,
+                      ),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      Text(
+                        'Upload screenshot of transaction',
+                        style: AppTypography.kLight12
                             .copyWith(color: AppColors.kAppBarPink),
-                            ),
-            ),
-            SizedBox(
-              height: 30.h,
-            ),
-            accountDetails(widget.accountNumber, 'Account No.', context),
-            SizedBox(
-              height: 20.h,
-            ),
-            
-    Container(
-  child: widget.ibanNumber.isNotEmpty
-    ? accountDetails(widget.ibanNumber, 'IBAN', context)
-    : null,
-),
-
-            SizedBox(
-              height: 16.h,
-            ),
-            Text(
-                      "Copy the account or IBAN above, open the Bank application, paste the selected numbers into their respective fields, and proceed with the donation. Remember to take a screenshot of the transaction and upload here",
-                      style: AppTypography.kLight10
-                          .copyWith(color: AppColors.kBackgroundPink1),
-                    ),
-            SizedBox(height: 16.h),
-            InkWell(
-              onTap: _pickImage,
-              child: Container(
-                padding: EdgeInsets.all(10.h),
-                decoration: BoxDecoration(
-                  color: AppColors.kWhite,
-                  borderRadius: BorderRadius.circular(10.r),
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.upload,
-                      color: AppColors.kAppBarPink,
-                    ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    Text(
-                      'Upload screenshot of transaction',
-                      style: AppTypography.kLight12
-                          .copyWith(color: AppColors.kAppBarPink),
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            
-            SizedBox(
-              height: 28.h,
-            ),
-            InkWell(
-              onTap: _submit,
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(vertical: 8.h),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppColors.kPrimary,
-                  borderRadius: BorderRadius.circular(5.r),
-                ),
-                child: Text("Submit",
-                    style: AppTypography.kSemiBold14.copyWith(
-                      color: AppColors.kWhite,
-                      fontSize: 22,
-                    )),
+              SizedBox(
+                height: 28.h,
               ),
-            )
-          ],
+              InkWell(
+                onTap: _submit,
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(vertical: 8.h),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: AppColors.kPrimary,
+                    borderRadius: BorderRadius.circular(5.r),
+                  ),
+                  child: Text("Submit",
+                      style: AppTypography.kSemiBold14.copyWith(
+                        color: AppColors.kWhite,
+                        fontSize: 22,
+                      )),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  TextField DonationTextField(String HintText, TextInputType keyboardType, TextEditingController controller) {
+  
+   
+    return TextField(
+                controller: controller,
+                onChanged: (value) {
+                  setState(() {
+                    _enteredAmount = value;
+                  });
+                },
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 25.w),
+                  filled: true,
+                  fillColor: AppColors.kWhite,
+                  hintText: HintText,
+                  hintStyle: AppTypography.kLight12
+                      .copyWith(color: AppColors.kBlack.withOpacity(0.4)),
+                  border: InputBorder.none,
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.r),
+                      borderSide: BorderSide.none),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.r),
+                      borderSide: BorderSide.none),
+                  disabledBorder: const OutlineInputBorder(),
+                ),
+                keyboardType: keyboardType,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                ],
+              );
   }
 }
