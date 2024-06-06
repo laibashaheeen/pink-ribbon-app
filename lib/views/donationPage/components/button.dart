@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
-import 'package:pink_ribbon/views/donationPage/components/button_model.dart';
+import 'package:pink_ribbon/model/button_model.dart';
 
 class ProcedurePrice extends StatelessWidget {
   // final String label;

@@ -16,13 +16,11 @@ class MorePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
         backgroundColor: AppColors.kWhite,
-        
         centerTitle: true,
         title: Text("More",
-                style: AppTypography.kSemiBold18.copyWith(color: AppColors.kPrimary)
-                ),
+            style:
+                AppTypography.kSemiBold18.copyWith(color: AppColors.kPrimary)),
         actions: [
           InkWell(
             onTap: () {
@@ -40,12 +38,12 @@ class MorePage extends StatelessWidget {
           ),
           InkWell(
               onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProfilePage(),
-                  ));
-            },
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfilePage(),
+                    ));
+              },
               child: Padding(
                 padding: EdgeInsets.only(right: 16.w, left: 8.w),
                 child: Icon(
@@ -57,7 +55,7 @@ class MorePage extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 40.0.w),
+        padding: EdgeInsets.symmetric(horizontal: 40.0.w,vertical: 70.h),
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -71,22 +69,9 @@ class MorePage extends StatelessWidget {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
+          
           children: [
-            CircleAvatar(
-              radius: 50.r,
-              backgroundImage: AssetImage(AppAssets.kSurvivor1),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Text('Welcome!',
-                style:
-                    AppTypography.kLight20.copyWith(color: AppColors.kPrimary)),
-            SizedBox(
-              height: 12.h,
-            ),
+           
             ListTile(
               onTap: () {
                 Navigator.push(
@@ -101,9 +86,9 @@ class MorePage extends StatelessWidget {
                     ));
               },
               contentPadding: EdgeInsets.zero,
+            
               dense: true,
               minLeadingWidth: 1,
-              
               leading: SvgPicture.asset(
                 AppAssets.kAboutUs,
                 height: 26.h,
@@ -111,10 +96,11 @@ class MorePage extends StatelessWidget {
                 color: AppColors.kPrimary,
               ),
               title: Text(
-                'About US',
-                style:
-                    AppTypography.kLight12.copyWith(color: AppColors.kPrimary),
-              ),
+                  'About US',
+                  style:
+                      AppTypography.kLight12.copyWith(color: AppColors.kPrimary),
+                ),
+              
             ),
             SizedBox(
               height: 12.h,
@@ -242,7 +228,53 @@ class MorePage extends StatelessWidget {
               height: 12.h,
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      contentPadding: EdgeInsets.all(30.h),
+                      title: const Text('Logout?'),
+                      content: const Text('Are you sure you want to logout?'),
+                      actions: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context); // Close the dialog
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(8.h),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5.r),
+                              color: AppColors.kAppBarGrey,
+                            ),
+                            child: Text(
+                              'CANCEL',
+                              style: AppTypography.kLight12
+                                  .copyWith(color: AppColors.kBlack),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 4.w,),
+                        InkWell(
+                          onTap: () {},
+                          child: Container(
+                            padding: EdgeInsets.all(8.h),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5.r),
+                              color: AppColors.kPrimary,
+                            ),
+                            child: Text(
+                              'LOGOUT',
+                              style: AppTypography.kLight12
+                                  .copyWith(color: AppColors.kWhite),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
               contentPadding: EdgeInsets.zero,
               dense: true,
               minLeadingWidth: 1,

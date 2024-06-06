@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pink_ribbon/data/app_assets.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
+import 'package:pink_ribbon/model/button_model.dart';
 import 'package:pink_ribbon/views/PaymentMethod/payment_method.dart';
 import 'package:pink_ribbon/views/donationPage/components/button.dart';
-import 'package:pink_ribbon/views/donationPage/components/button_model.dart';
 import 'package:pink_ribbon/views/profilePage/profile_view.dart';
 
 class DonationPage extends StatefulWidget {
@@ -104,7 +104,7 @@ class _DonationPageState extends State<DonationPage> {
                 textAlign: TextAlign.center,
                 text: TextSpan(
                   style: AppTypography.kLight14
-                      .copyWith(color: AppColors.kAppBarGrey, height: 1.5.h),
+                      .copyWith(color: AppColors.kGrey, height: 1.5.h),
                       
                   children: <TextSpan>[
                     const TextSpan(text: 'Your ZAKAT Can Save Lives \n'),
