@@ -6,11 +6,11 @@ import 'package:pink_ribbon/data/typography.dart';
 
 class ProfileTextField extends StatefulWidget {
   final String label;
-  // final bool isDropdown;
+  final TextInputType type;
   const ProfileTextField({
     super.key,
-    // this.isDropdown = false,
-    required this.label,
+    
+    required this.label, required this.type,
   });
 
   @override
@@ -33,7 +33,7 @@ class _ProfileTextFieldState extends State<ProfileTextField> {
           height: 15.h,
         ),
         TextField(
-          keyboardType: TextInputType.name,
+          keyboardType: widget.type,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.all(14.h),
             enabledBorder: OutlineInputBorder(
@@ -49,13 +49,7 @@ class _ProfileTextFieldState extends State<ProfileTextField> {
               borderSide: BorderSide(color: AppColors.kPrimary, width: 1.0.w),
             ),
             
-            // suffixIcon: widget.isDropdown
-            //     ? IconButton(
-            //         onPressed: () {},
-            //         icon:  Icon(Icons.keyboard_arrow_down, color: AppColors.kGrey)
-                    
-            //       )
-            //     : null
+            
           ),
            style: AppTypography.kSemiBold14.copyWith(color: AppColors.kBlack),
         ),

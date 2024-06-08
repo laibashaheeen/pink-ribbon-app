@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
@@ -24,7 +23,8 @@ class _BankPageState extends State<BankPage> {
   final TextEditingController _donationAmountController = TextEditingController();
   final TextEditingController _accountController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
-  String? _enteredAmount;
+  final _formKey = GlobalKey<FormState>();
+  
   XFile? _imageFile;
 
   Future<void> _pickImage() async {
@@ -152,8 +152,7 @@ class _BankPageState extends State<BankPage> {
             ),
           ),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.start,
+            
             children: <Widget>[
               Center(
                 child: Text(widget.bankname,
@@ -187,15 +186,24 @@ class _BankPageState extends State<BankPage> {
               SizedBox(
                 height: 16.h,
               ),
-              DonationTextField('Enter donation amount (Rs.)', TextInputType.number, _donationAmountController),
-              SizedBox(
-                height: 16.h,
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    DonationTextField('Enter donation amount (Rs.)', TextInputType.number, _donationAmountController),
+                    SizedBox(
+                  height: 16.h,
+                ),
+                DonationTextField('Enter your Account No.', TextInputType.name, _accountController),
+                SizedBox(
+                  height: 16.h,
+                ),
+                DonationTextField("Enter your name as per banking app", TextInputType.name, _nameController),
+                  ],
+                ),
               ),
-              DonationTextField('Enter your Account No.', TextInputType.name, _accountController),
-              SizedBox(
-                height: 16.h,
-              ),
-              DonationTextField("Enter your name as per banking app", TextInputType.name, _nameController),
+              
+              
                 SizedBox(height: 16.h),
               InkWell(
                 onTap: _pickImage,
@@ -250,16 +258,12 @@ class _BankPageState extends State<BankPage> {
     );
   }
 
-  TextField DonationTextField(String HintText, TextInputType keyboardType, TextEditingController controller) {
+  TextField DonationTextField(String HintText, TextInputType KeyboardType, TextEditingController controller) {
   
    
     return TextField(
                 controller: controller,
-                onChanged: (value) {
-                  setState(() {
-                    _enteredAmount = value;
-                  });
-                },
+                
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.only(left: 25.w),
                   filled: true,
@@ -276,10 +280,8 @@ class _BankPageState extends State<BankPage> {
                       borderSide: BorderSide.none),
                   disabledBorder: const OutlineInputBorder(),
                 ),
-                keyboardType: keyboardType,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                ],
+                keyboardType: KeyboardType,
+                
               );
   }
 }

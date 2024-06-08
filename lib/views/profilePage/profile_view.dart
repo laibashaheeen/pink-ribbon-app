@@ -5,9 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
-import 'package:pink_ribbon/views/Auth/ForgotPassword/Forgotpass.dart';
 import 'package:pink_ribbon/views/profilePage/components/custom_text_field.dart';
-import 'package:pink_ribbon/views/profilePage/components/custom_text_form_field.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -18,7 +16,6 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
    final _heightController = TextEditingController(); // Controller for height
   final _weightController = TextEditingController(); // Controller for weight
   final _formKey = GlobalKey<FormState>();
@@ -169,49 +166,26 @@ void _calculateBMI() {
                 key: _formKey,
                 child: Column(
                   children: [
-                    ProfileTextFormField(
-                      controller: _emailController,
+                    const ProfileTextField(
                       label: 'Email Address',
+                      type: TextInputType.emailAddress
                     ),
-                    SizedBox(height: 28.h),
-                    ProfileTextFormField(
-                      isPassword: true,
-                      controller: _passwordController,
-                      label: 'Password',
-                    ),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ForgotPass(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'Change Password',
-                          style: AppTypography.kLight12.copyWith(
-                            color: AppColors.kPrimary,
-                            decoration: TextDecoration.underline,
-                            decorationColor: AppColors.kPrimary
-                          ),
-                        ),
-                      ),
-                    ),
+                    
                     
                     SizedBox(height: 8.h),
                     const ProfileTextField(
                       label: 'Name',
+                      type: TextInputType.name
                     ),
                     SizedBox(height: 28.h),
                     const ProfileTextField(
                       label: 'Phone No.',
+                      type: TextInputType.phone
                     ),
                     SizedBox(height: 28.h),
                     const ProfileTextField(
                       label: 'Gender',
+                      type: TextInputType.name
                     ),
                     SizedBox(height: 24.h),
           
@@ -219,10 +193,12 @@ void _calculateBMI() {
              
                     const ProfileTextField(
                       label: 'Blood Group',
+                      type: TextInputType.name
                     ),
                     SizedBox(height: 28.h),
                     const ProfileTextField(
                       label: 'Date of Birth',
+                      type: TextInputType.name
                     ),
                     SizedBox(height: 34.h),
                     InkWell(
@@ -254,16 +230,18 @@ void _calculateBMI() {
                       color: AppColors.kAppBarGrey,
                     ),
                     SizedBox(height: 24.h),
-                    ProfileTextFormField(
-                controller: _heightController,
+                    const ProfileTextField(
+                // controller: _heightController,
                 label: 'Height (ft)',
+                type: TextInputType.number
               ),
               SizedBox(height: 24.h),
           
               // Text field for weight
-              ProfileTextFormField(
-                controller: _weightController,
+              const ProfileTextField(
+                // controller: _weightController,
                 label: 'Weight (kg)',
+                type: TextInputType.number
               ),
               SizedBox(height: 28.h),
           
