@@ -71,6 +71,9 @@ dependencies:
     sdk: flutter
   flutter_translate: ^3.1.0
   toggle_switch: ^2.3.0
+  flutter_youtube_view: ^2.0.4
+  video_player: ^2.8.6
+  flick_video_player: ^0.8.0
   
 flutter_native_splash:
   color: "#ffffff"

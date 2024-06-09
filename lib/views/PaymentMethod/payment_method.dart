@@ -4,7 +4,7 @@ import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/model/payment_model.dart';
 import 'package:pink_ribbon/views/PaymentMethod/components/payment_card.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
+import 'package:pink_ribbon/views/Components/custom_appbar.dart';
 
 class PaymentMethods extends StatefulWidget {
   const PaymentMethods({super.key});

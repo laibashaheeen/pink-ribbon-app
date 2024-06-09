@@ -6,7 +6,7 @@ import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/MoreView/components/about_us.dart';
 import 'package:pink_ribbon/views/MoreView/components/founder_page.dart';
-import 'package:pink_ribbon/views/profilePage/profile_view.dart';
+import 'package:pink_ribbon/views/Components/custom_appbar.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class MorePage extends StatelessWidget {
@@ -15,45 +15,7 @@ class MorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.kWhite,
-        centerTitle: true,
-        title: Text("More",
-            style:
-                AppTypography.kSemiBold18.copyWith(color: AppColors.kPrimary)),
-        actions: [
-          InkWell(
-            onTap: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //       builder: (context) => const NotificationPage(),
-              //     ));
-            },
-            child: Icon(
-              Icons.notifications_none_rounded,
-              size: 28,
-              color: AppColors.kAppBarGrey,
-            ),
-          ),
-          InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProfilePage(),
-                    ));
-              },
-              child: Padding(
-                padding: EdgeInsets.only(right: 16.w, left: 8.w),
-                child: Icon(
-                  Icons.account_circle_outlined,
-                  size: 28,
-                  color: AppColors.kAppBarGrey,
-                ),
-              )),
-        ],
-      ),
+      appBar: const CustomAppBar(title: 'More', main: true,),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 40.0.w,vertical: 70.h),
         width: double.infinity,

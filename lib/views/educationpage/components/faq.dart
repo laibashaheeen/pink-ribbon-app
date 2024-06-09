@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/model/faq_model.dart';
+import 'package:pink_ribbon/views/Components/custom_appbar.dart';
 import 'package:pink_ribbon/views/educationpage/components/faq_widget.dart';
 import 'package:pink_ribbon/views/educationpage/components/headrow.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 
 class FAQs extends StatefulWidget {
@@ -16,7 +16,7 @@ class FAQs extends StatefulWidget {
 }
 
 class _FAQsState extends State<FAQs> {
-  // int _selectedIndex = 0;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,16 +52,14 @@ class _FAQsState extends State<FAQs> {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: faqItem.length,
               itemBuilder: (BuildContext context, int index) {
-                // final isSelected = index == _selectedIndex;
+                
                 return InkWell(
                   onTap: () {
-                    // setState(() {
-                    //     _selectedIndex = index;
-                    //   });
+                   
                   },
                   child: CustomFaq(
                     faqItem: faqItem[index],
-                    //  isSelected: isSelected,
+                    
                   ),
                 );
               },

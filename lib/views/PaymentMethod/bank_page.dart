@@ -5,7 +5,7 @@ import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/PaymentMethod/components/account_details.dart';
 import 'package:pink_ribbon/views/landingpage/landing_page.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
+import 'package:pink_ribbon/views/Components/custom_appbar.dart';
 
 class BankPage extends StatefulWidget {
   final String bankname;
