@@ -1,4 +1,4 @@
-// Uncomment all comments except and delete this one
+// Uncomment all comments and delete this one
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
