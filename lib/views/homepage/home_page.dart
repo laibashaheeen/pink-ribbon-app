@@ -6,7 +6,7 @@ import 'package:pink_ribbon/data/app_assets.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/model/testimonial_model.dart';
-import 'package:pink_ribbon/views/Auth/notificationPage/notification_screen.dart';
+import 'package:pink_ribbon/views/notificationPage/notification_screen.dart';
 import 'package:pink_ribbon/views/homepage/components/banner_card.dart';
 import 'package:pink_ribbon/views/homepage/components/testimonial.dart';
 import 'package:pink_ribbon/views/profilePage/profile_view.dart';

@@ -7,7 +7,7 @@ import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/model/button_model.dart';
 import 'package:pink_ribbon/views/PaymentMethod/payment_method.dart';
 import 'package:pink_ribbon/views/donationPage/components/button.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
+import 'package:pink_ribbon/views/Components/custom_appbar.dart';
 
 class DonationPage extends StatefulWidget {
   const DonationPage({super.key});

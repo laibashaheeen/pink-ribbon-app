@@ -10,7 +10,7 @@ import 'package:pink_ribbon/views/educationpage/components/stages.dart';
 import 'package:pink_ribbon/views/educationpage/components/symptoms.dart';
 import 'package:pink_ribbon/views/educationpage/components/treatment.dart';
 import 'package:pink_ribbon/views/educationpage/components/what_is_breast_cancer.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
+import 'package:pink_ribbon/views/Components/custom_appbar.dart';
 
 
 class EducationPage extends StatefulWidget {

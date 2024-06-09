@@ -4,7 +4,7 @@ import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/educationpage/components/bullets.dart';
 import 'package:pink_ribbon/views/educationpage/components/headrow.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
+import 'package:pink_ribbon/views/Components/custom_appbar.dart';
 
 class Treatment extends StatefulWidget {
   const Treatment({super.key});

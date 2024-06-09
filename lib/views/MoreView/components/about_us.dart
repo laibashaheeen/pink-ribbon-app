@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
+import 'package:pink_ribbon/views/Components/custom_appbar.dart';
 
 class AboutUsPage extends StatelessWidget {
   final String image;

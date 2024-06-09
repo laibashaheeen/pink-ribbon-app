@@ -6,7 +6,7 @@ import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/views/MoreView/components/about_us.dart';
 import 'package:pink_ribbon/views/MoreView/components/founder_page.dart';
-import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
+import 'package:pink_ribbon/views/Components/custom_appbar.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class MorePage extends StatelessWidget {
