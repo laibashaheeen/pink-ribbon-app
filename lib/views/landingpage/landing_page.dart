@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/views/MoreView/more.dart';
 import 'package:pink_ribbon/views/donationPage/donation_page.dart';
+import 'package:pink_ribbon/views/videoPage/Video_page.dart';
 import 'package:pink_ribbon/views/educationpage/education_page.dart';
 import 'package:pink_ribbon/views/homepage/home_page.dart';
 
@@ -20,7 +21,7 @@ class _LandingPageState extends State<LandingPage> {
     const HomePage(token: null,),
     const EducationPage(),
     const DonationPage(),
-    Container(),
+    const VideoPage(),
     const MorePage(),
   ];
   @override
@@ -101,16 +102,16 @@ class _LandingPageState extends State<LandingPage> {
           ),
           BottomNavigationBarItem(
             activeIcon: Icon(
-              Icons.calendar_month,
+              Icons.video_collection_rounded,
               color: AppColors.kPrimary,
               size: 26,
             ),
             icon: Icon(
-              Icons.calendar_month_outlined,
+              Icons.video_collection_outlined,
               color: AppColors.kAppBarGrey,
               size: 26,
             ),
-            label: 'Calender',
+            label: 'Videos',
           ),
           BottomNavigationBarItem(
             activeIcon: Icon(
