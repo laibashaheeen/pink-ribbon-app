@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
-import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/model/EducationModel.dart';
 import 'package:pink_ribbon/views/educationpage/components/EducationCard.dart';
 import 'package:pink_ribbon/views/educationpage/components/early_detection.dart';
@@ -11,7 +10,7 @@ import 'package:pink_ribbon/views/educationpage/components/stages.dart';
 import 'package:pink_ribbon/views/educationpage/components/symptoms.dart';
 import 'package:pink_ribbon/views/educationpage/components/treatment.dart';
 import 'package:pink_ribbon/views/educationpage/components/what_is_breast_cancer.dart';
-import 'package:pink_ribbon/views/profilePage/profile_view.dart';
+import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 
 class EducationPage extends StatefulWidget {
@@ -52,60 +51,7 @@ class _EducationPageState extends State<EducationPage> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      appBar: AppBar(
-        
-        backgroundColor: AppColors.kWhite,
-        // leading: InkWell(
-        //   onTap: () {
-        //     Navigator.push(
-        //           context,
-        //           MaterialPageRoute(
-        //             builder: (context) => const LandingPage(),
-        //           ));
-        //   },
-        //   child: Icon(
-        //         Icons.arrow_back_ios_new,
-        //         size: 28,
-        //         color: AppColors.kAppBarGrey,
-        //       ),
-        // ),
-        centerTitle: true,
-        title: Text("Education",
-                style: AppTypography.kSemiBold18.copyWith(color: AppColors.kPrimary)
-                ),
-        actions: [
-          InkWell(
-            onTap: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //       builder: (context) => const NotificationPage(),
-              //     ));
-            },
-            child: Icon(
-              Icons.notifications_none_rounded,
-              size: 28,
-              color: AppColors.kAppBarGrey,
-            ),
-          ),
-          InkWell(
-              onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProfilePage(),
-                  ));
-            },
-              child: Padding(
-                padding: EdgeInsets.only(right: 16.w, left: 8.w),
-                child: Icon(
-                  Icons.account_circle_outlined,
-                  size: 28,
-                  color: AppColors.kAppBarGrey,
-                ),
-              )),
-        ],
-      ),
+      appBar: const CustomAppBar(title: "Education", main: true),
       body: SingleChildScrollView(
         
         child: Container(

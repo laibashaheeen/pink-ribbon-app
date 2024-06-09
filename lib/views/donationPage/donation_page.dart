@@ -7,7 +7,7 @@ import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/model/button_model.dart';
 import 'package:pink_ribbon/views/PaymentMethod/payment_method.dart';
 import 'package:pink_ribbon/views/donationPage/components/button.dart';
-import 'package:pink_ribbon/views/profilePage/profile_view.dart';
+import 'package:pink_ribbon/views/widgets/custom_appbar.dart';
 
 class DonationPage extends StatefulWidget {
   const DonationPage({super.key});
@@ -23,45 +23,7 @@ class _DonationPageState extends State<DonationPage> {
   Widget build(BuildContext context) {
     precacheImage(AssetImage(AppAssets.kDonate), context);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.kWhite,
-        centerTitle: true,
-        title: Text("Donation",
-            style:
-                AppTypography.kSemiBold18.copyWith(color: AppColors.kPrimary)),
-        actions: [
-          InkWell(
-            onTap: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //       builder: (context) => const NotificationPage(),
-              //     ));
-            },
-            child: Icon(
-              Icons.notifications_none_rounded,
-              size: 28,
-              color: AppColors.kAppBarGrey,
-            ),
-          ),
-          InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProfilePage(),
-                    ));
-              },
-              child: Padding(
-                padding: EdgeInsets.only(right: 16.w, left: 8.w),
-                child: Icon(
-                  Icons.account_circle_outlined,
-                  size: 28,
-                  color: AppColors.kAppBarGrey,
-                ),
-              )),
-        ],
-      ),
+      appBar: const CustomAppBar(title: "Donation", main: true,),
       body: CachedNetworkImage(
         imageUrl:
             'https://myfinancemaster.com/wp-content/uploads/2024/01/invest-20k-5-1-930x620.jpg',
@@ -140,38 +102,7 @@ class _DonationPageState extends State<DonationPage> {
               SizedBox(
                 height: 30.h,
               ),
-              // TextField(
-              //   controller: _textController,
-              //   onChanged: (value) {
-              //     setState(() {
-              //       _enteredAmount = value;
-              //     });
-              //   },
-              //   decoration: InputDecoration(
-              //     contentPadding: EdgeInsets.only(left: 30.h),
-              //     filled: true,
-              //     fillColor: AppColors.kWhite,
-              //     prefixText: "Rs. ",
-              //     prefixStyle: AppTypography.kLight14
-              //         .copyWith(color: AppColors.kPrimary),
-              //     hintText: 'Enter Desired Amount',
-              //     hintStyle: AppTypography.kSemiBold14
-              //         .copyWith(color: AppColors.kGrey.withOpacity(0.5)),
-              //     border: InputBorder.none,
-              //     focusedBorder: OutlineInputBorder(
-              //         borderRadius: BorderRadius.circular(15.r),
-              //         borderSide: BorderSide.none),
-              //     enabledBorder: OutlineInputBorder(
-              //         borderRadius: BorderRadius.circular(15.r),
-              //         borderSide: BorderSide.none),
-              //     disabledBorder: const OutlineInputBorder(),
-              //   ),
-              //   keyboardType: TextInputType.number,
-              //   inputFormatters: <TextInputFormatter>[
-              //     FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-              //   ],
-              // ),
-              // SizedBox(height: 30.h),
+              
 
               InkWell(
                 onTap: () {
@@ -181,29 +112,7 @@ class _DonationPageState extends State<DonationPage> {
                       builder: (context) => const PaymentMethods(),
                     ),
                   );
-                  // setState(() {
-                  //   _enteredAmount = _textController.text;
-                  // });
-                  // if (_enteredAmount != null && _enteredAmount!.isNotEmpty) {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => const PaymentMethods(),
-                  //     ),
-                  //   );
-                  // } else {
-                  //   ScaffoldMessenger.of(context).showSnackBar(
-                  //     SnackBar(
-                  //       backgroundColor: AppColors.kBackgroundPink2,
-                  //       duration: const Duration(milliseconds: 800),
-                  //       content: Text(
-                  //         "Please enter an amount",
-                  //         style: AppTypography.kLight12.copyWith(color: AppColors.kPrimary),
-                  //         textAlign: TextAlign.center,
-                  //       ),
-                  //     ),
-                  //   );
-                  // }
+                  
                 },
                 child: Container(
                   alignment: Alignment.center,
