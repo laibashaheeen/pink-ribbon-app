@@ -6,6 +6,7 @@ import 'package:pink_ribbon/data/app_assets.dart';
 import 'package:pink_ribbon/data/app_colors.dart';
 import 'package:pink_ribbon/data/typography.dart';
 import 'package:pink_ribbon/model/testimonial_model.dart';
+import 'package:pink_ribbon/views/Auth/notificationPage/notification_screen.dart';
 import 'package:pink_ribbon/views/homepage/components/banner_card.dart';
 import 'package:pink_ribbon/views/homepage/components/testimonial.dart';
 import 'package:pink_ribbon/views/profilePage/profile_view.dart';
@@ -40,11 +41,11 @@ class _HomePageState extends State<HomePage> {
         actions: [
           InkWell(
             onTap: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //       builder: (context) => const NotificationPage(),
-              //     ));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationScreen(),
+                  ));
             },
             child: Icon(
               Icons.notifications_none_rounded,
@@ -89,44 +90,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 55.h,
               ),
-              // Padding(
-              //   padding: EdgeInsets.symmetric(horizontal: 22.0.w),
-              //   child: Card(
-              //     elevation: 3,
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(30.0.r),
-              //     ),
-              //     child: TextField(
-              //       decoration: InputDecoration(
-              //         contentPadding: EdgeInsets.zero,
-              //         filled: true,
-              //         fillColor: AppColors.kWhite,
-              //         hintText: 'Search',
-              //         hintStyle: AppTypography.kSemiBold14
-              //             .copyWith(color: AppColors.kPrimary),
-              //         prefixIcon: Padding(
-              //           padding: EdgeInsets.only(left: 8.0.w),
-              //           child: Icon(
-              //             Icons.search,
-              //             color: AppColors.kPrimary,
-              //             size: 26,
-              //           ),
-              //         ),
-              //         border: InputBorder.none,
-              //         focusedBorder: OutlineInputBorder(
-              //             borderRadius: BorderRadius.circular(30.r),
-              //             borderSide: BorderSide.none),
-              //         enabledBorder: OutlineInputBorder(
-              //             borderRadius: BorderRadius.circular(30.r),
-              //             borderSide: BorderSide.none),
-              //         disabledBorder: const OutlineInputBorder(),
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: 35.h,
-              // ),
+            
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 22.0.w),
                 child: CarouselSlider(
